@@ -40,7 +40,7 @@
   }, 
   "husky": {
     "hooks": {
-      "pre-commit": "node branch-naming-check.js && npm run lint && npm run prettier:check",
+      "pre-commit": "npx ts-node branch-naming-check.ts && npm run lint && npm run prettier:check",
       "pre-push": "npm run lint && npm run prettier:check"
     }
   }
