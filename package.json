@@ -37,5 +37,11 @@
     "husky": "^8.0.3",
     "prettier": "2.8.7",
     "typescript": "^5.0.2"
+  }, 
+  "husky": {
+    "hooks": {
+      "pre-commit": "node branch-naming-check.js && npm run lint && npm run prettier:check",
+      "pre-push": "npm run lint && npm run prettier:check"
+    }
   }
 }
