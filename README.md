@@ -5,27 +5,27 @@ This project is a simple news article management system with RESTful APIs and Gr
 ## Project Structure
 
 Below is the structure of the project files:
-.
-├── config
-│   └── db.config.ts
-├── controller
-│   └── article.controller.ts
-├── logger
-│   └── api.logger.ts
-├── models
-│   └── article.ts
-├── repository
-│   └── article.repository.ts
-├── routes
-│   └── index.ts
-├── service
-│   └── article.service.ts
-├── types
-│   └── article.d.ts
-├── app.ts
-├── index.ts
-├── scrapper.ts
-└── package.json
+
+    ├── config
+    │   └── db.config.ts
+    ├── controller
+    │   └── article.controller.ts
+    ├── logger
+    │   └── api.logger.ts
+    ├── models
+    │   └── article.ts
+    ├── repository
+    │   └── article.repository.ts
+    ├── routes
+    │   └── index.ts
+    ├── service
+    │   └── article.service.ts
+    ├── types
+    │   └── article.d.ts
+    ├── app.ts
+    ├── index.ts
+    ├── scrapper.ts
+    └── package.json
 
 ## Installation and Setup
 
