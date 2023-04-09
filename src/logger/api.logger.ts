@@ -1,13 +1,10 @@
-import pine from 'pine';
-
-const logger = pine();
-
 export class APILogger {
-  info(message: string, data?: any) {
-    logger.info(`${message}   ${undefined != data ? JSON.stringify(data) : ''}`);
+  info(req: any, res: any, next: any): void {
+    console.log(`[${new Date().toISOString()}] ${req.method} - ${req.url}`);
+    next();
   }
 
-  error(message: string) {
-    logger.error(message);
+  error(message: string): void {
+    console.error(`[${new Date().toISOString()}] ${message}`);
   }
 }

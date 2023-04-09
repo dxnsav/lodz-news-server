@@ -1,49 +1,24 @@
-import { connect } from 'mongoose';
-import { ArticleModel } from '../models/article';
-import { APILogger } from '../logger/api.logger';
+import { ArticleModel } from '../models/article.model';
+import { IArticle } from '../@types/article';
 
 export class ArticleRepository {
-  private logger: APILogger;
-
-  constructor() {
-    connect();
-    this.logger = new APILogger();
+  async addArticle(article: IArticle) {
+    return await ArticleModel.create(article);
   }
 
   async getArticles() {
-    const articles = await ArticleModel.find({});
-
-    console.log('articles:::', articles);
-    return articles;
+    return await ArticleModel.find();
   }
 
-  async createArticle(article) {
-    let data = {};
-    try {
-      data = await ArticleModel.create(article);
-    } catch (error) {
-      this.logger.error('Repository: createArticle', error);
-    }
-    return data;
+  async updateArticle(id: string, article: Partial<IArticle>) {
+    return await ArticleModel.findByIdAndUpdate(id, article, { new: true });
   }
 
-  async updateArticle(article) {
-    let data = {};
-    try {
-      data = await ArticleModel.updateOne(article);
-    } catch (error) {
-      this.logger.error('Repository: updateArticle', error);
-    }
-    return data;
+  async deleteArticle(id: string) {
+    return await ArticleModel.findByIdAndDelete(id);
   }
 
-  async deleteArticle(id) {
-    let data: any = {};
-    try {
-      data = await ArticleModel.deleteOne({ _id: id });
-    } catch (error) {
-      this.logger.error('Repository: deleteArticle', error);
-    }
-    return { status: `${data.deletedCount > 0 ? true : false}` };
+  async getArticleByTitle(title: string): Promise<IArticle | null> {
+    return await ArticleModel.findOne({ title });
   }
 }
