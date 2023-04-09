@@ -1,3 +1,10 @@
+import * as functions from "firebase-functions";
+import app from "../../src/app";
+import scrapper from "../../src/scrapper";
+
+export const server = functions.https.onRequest(app);
+export const scrapArticles = functions.https.onRequest(scrapper);
+
 // // Start writing functions
 // // https://firebase.google.com/docs/functions/typescript
 //
@@ -5,8 +12,3 @@
 //   functions.logger.info("Hello logs!", {structuredData: true});
 //   response.send("Hello from Firebase!");
 // });
-
-import * as functions from "firebase-functions";
-import * as app from "../../src/app";
-
-export const api = functions.http.onRequest(app);

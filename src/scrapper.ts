@@ -10,7 +10,7 @@ import moment from 'moment';
 const scrapUrl = 'https://lodz.pl/aktualnosci';
 const siteUrl = 'https://lodz.pl';
 
-(async () => {
+export default async function scrapper() {
   try {
     await mongoose.connect(dbConfig.url);
 
@@ -79,7 +79,7 @@ const siteUrl = 'https://lodz.pl';
   } catch (error) {
     console.error('Error:', error);
   }
-})();
+};
 
 function cleanText(text: string): string {
   const cleanedText = text.replace(/\n|\r/g, ' ').trim();

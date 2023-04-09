@@ -13,14 +13,10 @@ const app = express();
 app.use(bodyParser.json());
 app.use('/', router);
 
-const PORT = process.env.PORT || 4000;
-
 mongoose
   .connect(dbConfig.url)
   .then(() => {
-    app.listen(PORT, () => {
-      console.log(`Server is running on port ${PORT}`);
-    });
+    console.log(`Connected to MongoDB`);
   })
   .catch(error => {
     console.error('Error connecting to MongoDB:', error);
