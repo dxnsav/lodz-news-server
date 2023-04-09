@@ -1,9 +1,9 @@
 import axios from 'axios';
 import cheerio from 'cheerio';
 import mongoose from 'mongoose';
-import { dbConfig } from './src/config/db.config';
-import { ArticleController } from './src/controller/article.controller';
-import { IArticle } from './src/@types/article';
+import { dbConfig } from './config/db.config';
+import { ArticleController } from './controller/article.controller';
+import { IArticle } from './@types/article';
 import _ from 'underscore';
 import moment from 'moment';
 
