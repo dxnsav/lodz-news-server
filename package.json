@@ -11,7 +11,8 @@
     "lint:fix": "eslint --fix '{src,}/**/*.@(js|ts)'",
     "prettier": "prettier --write '{src,}/**/*.@(js|ts)'",
     "prettier:check": "prettier --check '{src,}/**/*.@(js|ts)'",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "build": "tsc "
   },
   "keywords": [],
   "author": "",
